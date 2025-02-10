@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --cb: cubic-bezier(.68, -0.55, 0.26, 1.55)
+}
+
+body, .wrapper, .social-media, .icon, .icon a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    min-height: 100vh;
+    background: #e3edf7;
+}
+
+.wrapper{
+    margin: 30px;
+    flex-direction: column;
+    gap: 70px;
+}
+
+h1{
+    font-size: 25px;
+    font-weight: normal;
+    font-family: sans-serif;
+    color: #555;
+    letter-spacing: 4px;
+    border: 2px solid #717171;
+    padding: 8px;
+}
+
+.social-media{
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.icon{
+    position: relative;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.icon a{
+    height: 70px;
+    width: 75px;
+    background-color: #e3edf7;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(255,255,255,0.7);
+    transition: transform 0.5s;
+}
+
+a i{
+    font-size: 35px;
+    color: #777;
+    transition: transform .5s;
+}
+
+a:hover{
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                -0.5px -0.5px 0px rgba(255,255,255,1),
+                0.5px 0.5px 0px rgba(0,0,0,0.15),
+                0px 12px 10px -10px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.01);
+    transform: translateY(2px);
+}
+
+a:hover i{
+    transform: scale(0.90);
+    color: var(--color);
+}
+
+
+
+.icon .tooltip{
+    position: absolute;
+    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    padding: 5px 8px;
+    background-color: var(--color);
+    border-radius: 5px;
+    box-shadow: 0 10px 10px #00000015;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s var(--cb);
+}
+
+.tooltip::before{
+    content: "";
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    background-color: var(--color);
+    bottom: -4px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s var(--cb);
+}
+
+
+.icon:hover .tooltip{
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+@media screen and (max-width: 900px){
+    body{
+        display: flex;
+        align-items: flex-start !important;
+    }
+
+    .social-media{
+        gap: 60px;
+    }
+}
